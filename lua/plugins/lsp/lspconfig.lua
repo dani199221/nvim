@@ -10,12 +10,11 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
-
 local keymap = vim.keymap
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
-    	-- keybind options
+	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
@@ -33,14 +32,13 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 end
 
-
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
-
+capabilities.offsetEncoding = "utf-8"
 
 lspconfig["clangd"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
 -- configure lua server (with special settings)

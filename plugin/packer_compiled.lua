@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["codicons.nvim"] = {
-    loaded = true,
-    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/codicons.nvim",
-    url = "https://github.com/mortepau/codicons.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -169,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-mapper"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/nvim-mapper",
+    url = "https://github.com/lazytanuki/nvim-mapper"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -201,6 +201,11 @@ _G.packer_plugins = {
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -216,10 +221,30 @@ _G.packer_plugins = {
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["vim-colorscheme-icons"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/vim-colorscheme-icons",
+    url = "https://github.com/bryanmylee/vim-colorscheme-icons"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
+  },
   ["vim-nightfly-guicolors"] = {
     loaded = true,
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
     url = "https://github.com/bluz71/vim-nightfly-guicolors"
+  },
+  ["vim-perforce"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/vim-perforce",
+    url = "https://github.com/nfvs/vim-perforce"
+  },
+  ["vs-tasks.nvim"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/vs-tasks.nvim",
+    url = "https://github.com/EthanJWright/vs-tasks.nvim"
   }
 }
 

@@ -1,6 +1,7 @@
 require("plugins-setup")
-require("core.colorscheme")
+require("plugins.mapper")
 require("core.options")
+require("core.colorscheme")
 require("core.keymaps")
 require("plugins.nvim-tree")
 require("plugins.lualine")
@@ -13,6 +14,5 @@ require("plugins.lsp.null-ls")
 require("plugins.autopairs")
 require("plugins.dap")
 require("plugins.toggleterm")
+require("plugins.vstasks")
 --require("plugins.treesitter")
-
-

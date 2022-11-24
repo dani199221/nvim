@@ -19,18 +19,18 @@ end
 --enable mason
 mason.setup()
 
-
 mason_lspconfig.setup({
-    ensure_installed = {"clangd", "sumneko_lua",}
-
-
+	ensure_installed = { "clangd", "sumneko_lua" },
 })
 
 mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
-        "cpplint", "stylua", "cpptools",
+		"cpplint",
+		"stylua",
+		"prettier",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
+	automatic_setup = true,
 })
