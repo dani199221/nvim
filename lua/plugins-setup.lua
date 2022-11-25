@@ -108,6 +108,12 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("EthanJWright/vs-tasks.nvim")
 
+	--clangFormatter for c/cpp code
+	use("rhysd/vim-clang-format")
+
+    --fancy notification
+    use("rcarriga/nvim-notify")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

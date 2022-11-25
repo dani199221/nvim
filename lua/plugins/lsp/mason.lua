@@ -20,7 +20,7 @@ end
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "clangd", "sumneko_lua" },
+	ensure_installed = { "clangd", "sumneko_lua", "sourcery" },
 })
 
 mason_null_ls.setup({
@@ -29,6 +29,8 @@ mason_null_ls.setup({
 		"cpplint",
 		"stylua",
 		"prettier",
+		"clang-format",
+		"autopep8",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

@@ -4,11 +4,5 @@ if not status then
 	return
 end
 
--- import telescope plugin safely
-local telescope_setup, telescope = pcall(require, "telescope")
-if not telescope_setup then
-	return
-end
-
-
-vim.notify =  require("notify")
+notify.setup()
+vim.notify = notify

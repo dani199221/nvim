@@ -27,3 +27,4 @@ telescope.setup({
 telescope.load_extension("mapper")
 telescope.load_extension("fzf")
 telescope.load_extension("vstask")
+telescope.load_extension("notify")

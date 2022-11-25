@@ -169,6 +169,11 @@ _G.packer_plugins = {
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/nvim-mapper",
     url = "https://github.com/lazytanuki/nvim-mapper"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -220,6 +225,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-clang-format"] = {
+    loaded = true,
+    path = "/home/dnawaz/.local/share/nvim/site/pack/packer/start/vim-clang-format",
+    url = "https://github.com/rhysd/vim-clang-format"
   },
   ["vim-colorscheme-icons"] = {
     loaded = true,

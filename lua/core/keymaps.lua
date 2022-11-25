@@ -32,8 +32,10 @@ keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-
+-- vstasks
 keymap.set("n", "<leader>ta", "<cmd>Telescope vstask tasks<cr>") -- list available help tags
 keymap.set("n", "<leader>ti", "<cmd>Telescope vstask inputs<cr>") --open the input list, set new input
 keymap.set("n", "<leader>th", "<cmd>Telescope vstask history<cr>") -- search history of tasks
 keymap.set("n", "<leader>tl", "<cmd>Telescope vstask launch<cr>") -- close the task runner (if toggleterm)
+-- ClangFormat
+keymap.set("n", "<leader>=", "<cmd>ClangFormat<cr>") -- Format whole file
