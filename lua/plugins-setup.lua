@@ -38,6 +38,7 @@ return packer.startup(function(use)
 	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 	use("ryanoasis/vim-devicons")
 	use("bryanmylee/vim-colorscheme-icons")
+	use("Mofiqul/vscode.nvim")
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -111,8 +112,13 @@ return packer.startup(function(use)
 	--clangFormatter for c/cpp code
 	use("rhysd/vim-clang-format")
 
-    --fancy notification
-    use("rcarriga/nvim-notify")
+	--fancy notification
+	use("rcarriga/nvim-notify")
+
+	--status column
+	use("luukvbaal/statuscol.nvim")
+	-- barbar
+	use({ "romgrk/barbar.nvim", wants = "nvim-web-devicons" })
 
 	if packer_bootstrap then
 		require("packer").sync()

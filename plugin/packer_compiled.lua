@@ -79,6 +79,12 @@ _G.packer_plugins = {
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim",
+    wants = { "nvim-web-devicons" }
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -211,6 +217,11 @@ _G.packer_plugins = {
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["statuscol.nvim"] = {
+    loaded = true,
+    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/statuscol.nvim",
+    url = "https://github.com/luukvbaal/statuscol.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -255,6 +266,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/vs-tasks.nvim",
     url = "https://github.com/EthanJWright/vs-tasks.nvim"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

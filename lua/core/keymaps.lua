@@ -39,3 +39,16 @@ keymap.set("n", "<leader>th", "<cmd>Telescope vstask history<cr>") -- search his
 keymap.set("n", "<leader>tl", "<cmd>Telescope vstask launch<cr>") -- close the task runner (if toggleterm)
 -- ClangFormat
 keymap.set("n", "<leader>=", "<cmd>ClangFormat<cr>") -- Format whole file
+
+--Barbar
+local opts = { noremap = true, silent = true }
+
+-- Move to previous/next
+keymap.set("n", "gT", "<Cmd>BufferPrevious<CR>", opts)
+keymap.set("n", "gt", "<Cmd>BufferNext<CR>", opts)
+keymap.set("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", opts)
+keymap.set("n", "<Tab>", "<Cmd>BufferNext<CR>", opts)
+-- P-- Pin/unpin buffer
+keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+-- C-- Close buffer
+keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)

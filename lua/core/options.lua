@@ -25,3 +25,7 @@ opt.autoindent = true -- indent a new line the same amount as the line just type
 opt.number = true -- add line numbers
 opt.relativenumber = true -- relative number
 opt.termguicolors = true
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+--opt.statuscolumn = "%@v:lua.ScFa@%C%T%@v:lua.ScLa@%s%T@v:lua.ScNa@%=%{v:lua.ScLn()}%T"
