@@ -52,3 +52,6 @@ keymap.set("n", "<Tab>", "<Cmd>BufferNext<CR>", opts)
 keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
 -- C-- Close buffer
 keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+
+-- Lazygit
+keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", opts)

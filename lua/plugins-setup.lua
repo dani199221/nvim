@@ -120,6 +120,9 @@ return packer.startup(function(use)
 	-- barbar
 	use({ "romgrk/barbar.nvim", wants = "nvim-web-devicons" })
 
+	--lazygit
+	use("kdheepak/lazygit.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

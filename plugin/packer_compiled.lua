@@ -110,6 +110,11 @@ _G.packer_plugins = {
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
