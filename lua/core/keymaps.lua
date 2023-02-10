@@ -55,3 +55,7 @@ keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 
 -- Lazygit
 keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", opts)
+
+-- Racket Eval
+keymap.set("n", "<leader>E", "<Cmd>ConjureEval<CR>", opts)
+keymap.set("n", "<leader>EE", "<Cmd>ConjureEvalBuf<CR>", opts)

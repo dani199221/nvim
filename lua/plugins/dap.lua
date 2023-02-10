@@ -119,16 +119,7 @@ dapui.setup({
 		enabled = true,
 		-- Display controls in this element
 		element = "repl",
-		icons = {
-			pause = "pause",
-			play = "play",
-			step_into = "sinto",
-			step_over = "sover",
-			step_out = "sout",
-			step_back = "sback",
-			run_last = "↻",
-			terminate = "X",
-		},
+		icons = {},
 	},
 
 	floating = {

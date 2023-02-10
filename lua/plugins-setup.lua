@@ -103,7 +103,7 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	--perforce integration for nvim
-	use("nfvs/vim-perforce")
+	--use("nfvs/vim-perforce")
 
 	--run tasks from nvim
 	use("nvim-lua/popup.nvim")
@@ -122,6 +122,10 @@ return packer.startup(function(use)
 
 	--lazygit
 	use("kdheepak/lazygit.nvim")
+
+	--racket
+	use("wlangstroth/vim-racket")
+	use("Olical/conjure")
 
 	if packer_bootstrap then
 		require("packer").sync()

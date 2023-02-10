@@ -105,6 +105,11 @@ _G.packer_plugins = {
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  conjure = {
+    loaded = true,
+    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/conjure",
+    url = "https://github.com/Olical/conjure"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -262,10 +267,10 @@ _G.packer_plugins = {
     path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
     url = "https://github.com/bluz71/vim-nightfly-guicolors"
   },
-  ["vim-perforce"] = {
+  ["vim-racket"] = {
     loaded = true,
-    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/vim-perforce",
-    url = "https://github.com/nfvs/vim-perforce"
+    path = "/Users/danialnawaz/.local/share/nvim/site/pack/packer/start/vim-racket",
+    url = "https://github.com/wlangstroth/vim-racket"
   },
   ["vs-tasks.nvim"] = {
     loaded = true,
