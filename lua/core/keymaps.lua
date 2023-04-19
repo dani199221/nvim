@@ -5,6 +5,12 @@ local keymap = vim.keymap --keymap variable
 -- clear search highlights
 keymap.set("n", "<leader>h", ":nohl<CR>", { silent = true })
 
+-- switch between windows
+keymap.set("n", "<C-h>", "<C-w>h") 
+keymap.set("n", "<C-l>", "<C-w>l") 
+keymap.set("n", "<C-j>", "<C-w>j")
+keymap.set("n", "<C-k>", "<C-w>k")
+
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
@@ -25,6 +31,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- nvim-tree
 keymap.set("n", "<leader>ne", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
+keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>", { silent = true }) -- toggle file explorer
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore

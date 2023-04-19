@@ -42,7 +42,6 @@ return lazy.setup({
 	-- fuzzy finding w/ telescope
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
@@ -50,7 +49,7 @@ return lazy.setup({
 			local telescope_setup, telescope = pcall(require, "telescope")
 			telescope.setup()
 			--telescope.load_extension("fzy_native")
-			telescope.load_extension("fzf")
+			--telescope.load_extension("fzf")
 			telescope.load_extension("vstask")
 			telescope.load_extension("notify")
 		end,
