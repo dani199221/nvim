@@ -20,7 +20,7 @@ end
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "clangd", "sumneko_lua", "sourcery" },
+	ensure_installed = { "clangd", "sourcery" },
 })
 
 mason_null_ls.setup({

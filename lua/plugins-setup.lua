@@ -1,133 +1,125 @@
--- auto install packer if not installed
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
+vim.opt.rtp:prepend(lazypath)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
-vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- import packer safely
-local status, packer = pcall(require, "packer")
+local status, lazy = pcall(require, "lazy")
 if not status then
 	return
 end
 
-return packer.startup(function(use)
-	-- packer can manage itself
-	use("wbthomason/packer.nvim")
+return lazy.setup({
 
 	-- keep track of keymaps
-	use("lazytanuki/nvim-mapper")
+	"lazytanuki/nvim-mapper",
 
-	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+	"nvim-lua/plenary.nvim", -- lua functions that many plugins use
 
-	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
-	use("ryanoasis/vim-devicons")
-	use("bryanmylee/vim-colorscheme-icons")
-	use("Mofiqul/vscode.nvim")
+	"bluz71/vim-nightfly-guicolors", -- preferred colorscheme
+	"ryanoasis/vim-devicons",
+	"bryanmylee/vim-colorscheme-icons",
+	"Mofiqul/vscode.nvim",
 
 	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
-
-	--use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-	--use("szw/vim-maximizer") -- maximizes and restores current window
-
-	-- essential plugins
-	--use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
-	--use("vim-scripts/ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
+	"nvim-tree/nvim-tree.lua",
 
 	-- vs-code like icons
-	use("kyazdani42/nvim-web-devicons")
+	"kyazdani42/nvim-web-devicons",
 
 	-- statusline
-	use("nvim-lualine/lualine.nvim")
+	"nvim-lualine/lualine.nvim",
 
 	-- fuzzy finding w/ telescope
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+		config = function()
+			local telescope_setup, telescope = pcall(require, "telescope")
+			telescope.setup()
+			--telescope.load_extension("fzy_native")
+			--telescope.load_extension("fzf")
+			telescope.load_extension("vstask")
+			telescope.load_extension("notify")
+		end,
+	},
+
+	-- fuzzy finder
 
 	-- autocompletion
-	use("hrsh7th/nvim-cmp") -- completion plugin
-	use("hrsh7th/cmp-buffer") -- source for text in buffer
-	use("hrsh7th/cmp-path") -- source for file system paths
+	"hrsh7th/nvim-cmp", -- completion plugin
+	"hrsh7th/cmp-buffer", -- source for text in buffer
+	"hrsh7th/cmp-path", -- source for file system paths
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") -- snippet engine
-	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-	use("rafamadriz/friendly-snippets") -- useful snippets
+	"L3MON4D3/LuaSnip", -- snippet engine
+	"saadparwaiz1/cmp_luasnip", -- for autocompletion
+	"rafamadriz/friendly-snippets", -- useful snippets
 
 	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+	"williamboman/mason.nvim", -- in charge of managing lsp servers, linters & formatters
+	"williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig
 
 	-- configuring lsp servers
-	use("neovim/nvim-lspconfig") -- easily configure language servers
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+	"neovim/nvim-lspconfig", -- easily configure language servers
+	"hrsh7th/cmp-nvim-lsp", -- for autocompletion
+	{
+		{ "glepnir/lspsaga.nvim", branch = "main" },
+	}, -- enhanced lsp uis
+	"onsails/lspkind.nvim", -- vs-code like icons for autocompletion
 
 	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+	"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+	"jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
 
 	-- treesitter configuration
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-	})
+	{
+		{
+			"nvim-treesitter/nvim-treesitter",
+			build = ":TSUpdate",
+			dependencies = {
+				"windwp/nvim-ts-autotag",
+			},
+		},
+	},
 
 	-- auto closing
-	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 
 	-- debugging
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
+	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
 	-- terminal in nvim
-	use("akinsho/toggleterm.nvim")
-
-	--perforce integration for nvim
-	--use("nfvs/vim-perforce")
+	"akinsho/toggleterm.nvim",
 
 	--run tasks from nvim
-	use("nvim-lua/popup.nvim")
-	use("EthanJWright/vs-tasks.nvim")
+	"nvim-lua/popup.nvim",
+	"EthanJWright/vs-tasks.nvim",
 
 	--clangFormatter for c/cpp code
-	use("rhysd/vim-clang-format")
+	"rhysd/vim-clang-format",
 
 	--fancy notification
-	use("rcarriga/nvim-notify")
+	"rcarriga/nvim-notify",
 
 	--status column
-	use("luukvbaal/statuscol.nvim")
+	"luukvbaal/statuscol.nvim",
 	-- barbar
-	use({ "romgrk/barbar.nvim", wants = "nvim-web-devicons" })
-
-	--lazygit
-	use("kdheepak/lazygit.nvim")
+	"kdheepak/lazygit.nvim",
+	"romgrk/barbar.nvim",
 
 	--racket
-	use("wlangstroth/vim-racket")
-	use("Olical/conjure")
-
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+	"wlangstroth/vim-racket",
+	"Olical/conjure",
+})
