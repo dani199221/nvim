@@ -24,6 +24,6 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("fzf")
+--telescope.load_extension("fzf")
 telescope.load_extension("toggletasks")
 telescope.load_extension("notify")
