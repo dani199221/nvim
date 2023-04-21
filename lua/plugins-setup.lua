@@ -105,7 +105,6 @@ return lazy.setup({
 
 	--run tasks from nvim
 	"nvim-lua/popup.nvim",
-	"EthanJWright/vs-tasks.nvim",
 	"jedrzejboczar/toggletasks.nvim",
 
 	--clangFormatter for c/cpp code
