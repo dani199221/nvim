@@ -50,7 +50,7 @@ return lazy.setup({
 			telescope.setup()
 			--telescope.load_extension("fzy_native")
 			--telescope.load_extension("fzf")
-			telescope.load_extension("vstask")
+			telescope.load_extension("toggletasks")
 			telescope.load_extension("notify")
 		end,
 	},
@@ -106,6 +106,7 @@ return lazy.setup({
 	--run tasks from nvim
 	"nvim-lua/popup.nvim",
 	"EthanJWright/vs-tasks.nvim",
+	"jedrzejboczar/toggletasks.nvim",
 
 	--clangFormatter for c/cpp code
 	"rhysd/vim-clang-format",
