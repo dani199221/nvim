@@ -36,10 +36,15 @@ end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 capabilities.offsetEncoding = "utf-8"
 
-lspconfig["racket_langserver"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+--lspconfig["racket_langserver"].setup({
+--	capabilities = capabilities,
+--	on_attach = on_attach,
+--})
 
 lspconfig["clangd"].setup({
 	capabilities = capabilities,
