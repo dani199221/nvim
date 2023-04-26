@@ -33,15 +33,32 @@ for keys, mapping in pairs(mappings) do
 	vim.api.nvim_set_keymap("n", keys, "", { callback = mapping, noremap = true })
 end
 
---[[
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/home/dnnawaz/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7', -- adjust as needed, must be absolute path
+    command = '/home/dn10/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7', -- adjust as needed, must be absolute path
 }
-dap.adapters.c =  dap.adapters.cpp:
+dap.adapters.c =  dap.adapters.cpp
 
 
+dap.configurations.c = {
+
+    {
+        name = "dune page debug",
+        type = "cppdbg",
+        request = "launch",
+        cwd = '${workspaceFolder}/build/',
+        program =  "${workspaceFolder}/build/page",
+        externalTerminal = false,
+        stopOnEntry = true,
+        args = {"-m256m", "-OC", "<", "/home/dn10/Downloads/jdi_simplex.pdf"},
+
+
+    },
+}
+
+
+--[[
 dap.configurations.c = {
         name = "JediJolt page debug",
         type = "cppdbg",
@@ -153,6 +170,15 @@ end
 
 -- Enable virtual text
 vim.g.dap_virtual_text = true
+local set_namespace = vim.api.nvim__set_hl_ns or vim.api.nvim_set_hl_ns
+local namespace = vim.api.nvim_create_namespace("dap-hlng")
+vim.api.nvim_set_hl(namespace, 'DapBreakpoint', { fg='#eaeaeb', bg='#ffffff' })
 
-vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+
+--vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "", linehl = "", numhl = "" })
+
+
+
+

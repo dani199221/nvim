@@ -106,20 +106,29 @@ return lazy.setup({
 	--run tasks from nvim
 	"nvim-lua/popup.nvim",
 	"jedrzejboczar/toggletasks.nvim",
+    {
+
+        "stevearc/overseer.nvim",
+        config = function ()
+            require("overseer").setup()
+        end
+
+    },
 
 	--clangFormatter for c/cpp code
-	"rhysd/vim-clang-format",
+	--"rhysd/vim-clang-format",
 
 	--fancy notification
 	"rcarriga/nvim-notify",
 
 	--status column
 	"luukvbaal/statuscol.nvim",
+
 	-- barbar
 	"kdheepak/lazygit.nvim",
 	"romgrk/barbar.nvim",
 
 	--racket
-	"wlangstroth/vim-racket",
-	"Olical/conjure",
+	--"wlangstroth/vim-racket",
+	--"Olical/conjure",
 })
