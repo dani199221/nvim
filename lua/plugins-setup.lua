@@ -122,9 +122,28 @@ return lazy.setup({
 	"rcarriga/nvim-notify",
 
 	--status column
-	"luukvbaal/statuscol.nvim",
+    "luukvbaal/statuscol.nvim",
 
-	-- barbar
+
+
+    {
+        "rebelot/heirline.nvim",
+
+        config = function()
+            require("heirline").setup({})
+        end,
+    },
+
+    -- additional settings for clangd
+    {
+        "p00f/clangd_extensions.nvim",
+        config = function ()
+            require("clangd_extensions").setup()
+        end
+
+    },
+
+    -- barbar
 	"kdheepak/lazygit.nvim",
 	"romgrk/barbar.nvim",
 

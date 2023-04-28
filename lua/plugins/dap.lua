@@ -51,7 +51,7 @@ dap.configurations.c = {
         program =  "${workspaceFolder}/build/page",
         externalTerminal = false,
         stopOnEntry = true,
-        args = {"-m256m", "-OC", "<", "/home/dn10/Downloads/jdi_simplex.pdf"},
+        args = {"-m256m", "-OC", "<", "/home/dn10/phqrm-255/testfile.pdf"},
 
 
     },

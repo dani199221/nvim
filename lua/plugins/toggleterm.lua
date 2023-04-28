@@ -22,7 +22,7 @@ toggleterm.setup({
 
   open_mapping = [[<c-\>]],
   direction = 'horizontal',
-  autochdir = true,
+  --autochdir = true,
   hide_numbers = true, -- hide the number column in toggleterm buffers
     float_opts = {
     -- The border key is *almost* the same as 'nvim_open_win'
