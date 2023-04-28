@@ -9,7 +9,6 @@ if not status then
 	return
 end
 
-
 -- import cmp-nvim-lsp plugin safely
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
@@ -62,107 +61,102 @@ lspconfig["pyright"].setup({
 	on_attach = on_attach,
 })
 
-
 lspconfig["lua_ls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.stdpath("config") .. "/lua"] = true,
-                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                    [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-                },
-                maxPreload = 100000,
-                preloadFileSize = 10000,
-            },
-        },
-    },
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+				},
+				maxPreload = 100000,
+				preloadFileSize = 10000,
+			},
+		},
+	},
 })
 
 clangd_extension.setup({
-    server = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-    },
-    extensions = {
-        -- defaults:
-        -- Automatically set inlay hints (type hints)
-        autoSetHints = true,
-        -- These apply to the default ClangdSetInlayHints command
-        inlay_hints = {
-            -- Only show inlay hints for the current line
-            only_current_line = false,
-            -- Event which triggers a refersh of the inlay hints.
-            -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
-            -- not that this may cause  higher CPU usage.
-            -- This option is only respected when only_current_line and
-            -- autoSetHints both are true.
-            only_current_line_autocmd = "CursorHold",
-            -- whether to show parameter hints with the inlay hints or not
-            show_parameter_hints = true,
-            -- prefix for parameter hints
-            parameter_hints_prefix = "<- ",
-            -- prefix for all the other hints (type, chaining)
-            other_hints_prefix = "=> ",
-            -- whether to align to the length of the longest line in the file
-            max_len_align = false,
-            -- padding from the left if max_len_align is true
-            max_len_align_padding = 1,
-            -- whether to align to the extreme right or not
-            right_align = false,
-            -- padding from the right if right_align is true
-            right_align_padding = 7,
-            -- The color of the hints
-            highlight = "Comment",
-            -- The highlight group priority for extmark
-            priority = 100,
-        },
-        ast = {
-            role_icons = {
-                type = "",
-                declaration = "",
-                expression = "",
-                specifier = "",
-                statement = "",
-                ["template argument"] = "",
-            },
+	server = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	},
+	extensions = {
+		-- defaults:
+		-- Automatically set inlay hints (type hints)
+		autoSetHints = true,
+		-- These apply to the default ClangdSetInlayHints command
+		inlay_hints = {
+			-- Only show inlay hints for the current line
+			only_current_line = false,
+			-- Event which triggers a refersh of the inlay hints.
+			-- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
+			-- not that this may cause  higher CPU usage.
+			-- This option is only respected when only_current_line and
+			-- autoSetHints both are true.
+			only_current_line_autocmd = "CursorHold",
+			-- whether to show parameter hints with the inlay hints or not
+			show_parameter_hints = true,
+			-- prefix for parameter hints
+			parameter_hints_prefix = "<- ",
+			-- prefix for all the other hints (type, chaining)
+			other_hints_prefix = "=> ",
+			-- whether to align to the length of the longest line in the file
+			max_len_align = false,
+			-- padding from the left if max_len_align is true
+			max_len_align_padding = 1,
+			-- whether to align to the extreme right or not
+			right_align = false,
+			-- padding from the right if right_align is true
+			right_align_padding = 7,
+			-- The color of the hints
+			highlight = "Comment",
+			-- The highlight group priority for extmark
+			priority = 100,
+		},
+		ast = {
+			role_icons = {
+				type = "",
+				declaration = "",
+				expression = "",
+				specifier = "",
+				statement = "",
+				["template argument"] = "",
+			},
 
-            kind_icons = {
-                Compound = "",
-                Recovery = "",
-                TranslationUnit = "",
-                PackExpansion = "",
-                TemplateTypeParm = "",
-                TemplateTemplateParm = "",
-                TemplateParamObject = "",
-            },
+			kind_icons = {
+				Compound = "",
+				Recovery = "",
+				TranslationUnit = "",
+				PackExpansion = "",
+				TemplateTypeParm = "",
+				TemplateTemplateParm = "",
+				TemplateParamObject = "",
+			},
 
-            highlights = {
-                detail = "Comment",
-            },
-        },
-        memory_usage = {
-            border = "none",
-        },
-        symbol_info = {
-            border = "none",
-        },
-    },
-
-
+			highlights = {
+				detail = "Comment",
+			},
+		},
+		memory_usage = {
+			border = "none",
+		},
+		symbol_info = {
+			border = "none",
+		},
+	},
 })
-
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-

@@ -15,10 +15,10 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.encoding = "UTF-8"
 
-opt.tabstop = 4 -- number of columns occupied by a tab
-opt.shiftwidth = 4 -- width for autoindents
+opt.tabstop = 2 -- number of columns occupied by a tab
+opt.shiftwidth = 2 -- width for autoindents
 opt.expandtab = true -- converts tabs to white space
-opt.softtabstop = 4 -- see multiple spaces as tabstops so <BS> does the right thing
+opt.softtabstop = 2 -- see multiple spaces as tabstops so <BS> does the right thing
 opt.autoindent = true
 
 opt.autoindent = true -- indent a new line the same amount as the line just typed
