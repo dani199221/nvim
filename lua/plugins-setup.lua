@@ -124,8 +124,6 @@ return lazy.setup({
 	--status column
     "luukvbaal/statuscol.nvim",
 
-
-
     {
         "rebelot/heirline.nvim",
 
@@ -137,9 +135,6 @@ return lazy.setup({
     -- additional settings for clangd
     {
         "p00f/clangd_extensions.nvim",
-        config = function ()
-            require("clangd_extensions").setup()
-        end
 
     },
 
