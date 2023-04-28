@@ -16,12 +16,6 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 local keymap = vim.keymap
 
 -- enable keybinds only for when lsp server available
@@ -68,6 +62,28 @@ lspconfig["pyright"].setup({
 	on_attach = on_attach,
 })
 
+
+lspconfig["lua_ls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                    [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                },
+                maxPreload = 100000,
+                preloadFileSize = 10000,
+            },
+        },
+    },
+})
 
 clangd_extension.setup({
     server = {
@@ -141,3 +157,12 @@ clangd_extension.setup({
 
 
 })
+
+
+-- Change the Diagnostic symbols in the sign column (gutter)
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
