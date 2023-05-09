@@ -4,11 +4,11 @@ opt.showmatch = true -- show matching
 
 opt.ignorecase = true -- case insensitive
 opt.smartcase = true -- smartcase
-opt.wrap = false -- stop wrapping
+--opt.wrap = false -- stop wrapping
 
 opt.hlsearch = true -- highlight search
 opt.incsearch = true -- incremental search
-opt.cursorline = true -- cursorline
+--opt.cursorline = true -- cursorline
 --opt.background="dark"
 opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position

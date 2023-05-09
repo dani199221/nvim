@@ -65,3 +65,6 @@ keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", opts)
 -- Racket Eval
 keymap.set("n", "<leader>E", "<Cmd>ConjureEval<CR>", opts)
 keymap.set("n", "<leader>EE", "<Cmd>ConjureEvalBuf<CR>", opts)
+
+-- restart lsp server (not on youtube nvim video)
+keymap.set("n", "<leader>lr", ":LspRestart<CR>") -- mapping to restart lsp if necessary

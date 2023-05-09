@@ -20,12 +20,10 @@ end
 
 return lazy.setup({
 
-	-- keep track of keymaps
-	"lazytanuki/nvim-mapper",
-
 	"nvim-lua/plenary.nvim", -- lua functions that many plugins use
 
 	"bluz71/vim-nightfly-guicolors", -- preferred colorscheme
+	"EdenEast/nightfox.nvim",
 	"ryanoasis/vim-devicons",
 	"bryanmylee/vim-colorscheme-icons",
 	"Mofiqul/vscode.nvim",
@@ -52,6 +50,7 @@ return lazy.setup({
 			--telescope.load_extension("fzf")
 			telescope.load_extension("toggletasks")
 			telescope.load_extension("notify")
+			--telescope.load_extension("media_files")
 		end,
 	},
 
@@ -106,14 +105,13 @@ return lazy.setup({
 	--run tasks from nvim
 	"nvim-lua/popup.nvim",
 	"jedrzejboczar/toggletasks.nvim",
-    {
+	{
 
-        "stevearc/overseer.nvim",
-        config = function ()
-            require("overseer").setup()
-        end
-
-    },
+		"stevearc/overseer.nvim",
+		config = function()
+			require("overseer").setup()
+		end,
+	},
 
 	--clangFormatter for c/cpp code
 	--"rhysd/vim-clang-format",
@@ -122,27 +120,42 @@ return lazy.setup({
 	"rcarriga/nvim-notify",
 
 	--status column
-    "luukvbaal/statuscol.nvim",
+	"luukvbaal/statuscol.nvim",
 
-    {
-        "rebelot/heirline.nvim",
+	{
+		"rebelot/heirline.nvim",
 
-        config = function()
-            require("heirline").setup({})
-        end,
-    },
+		config = function()
+			require("heirline").setup({})
+		end,
+	},
 
-    -- additional settings for clangd
-    {
-        "p00f/clangd_extensions.nvim",
+	-- additional settings for clangd
+	"p00f/clangd_extensions.nvim",
 
-    },
-
-    -- barbar
+	-- barbar
 	"kdheepak/lazygit.nvim",
 	"romgrk/barbar.nvim",
+
+	-- Add chatgpt to nvim
+	{
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("chatgpt").setup()
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	},
+	"ianding1/leetcode.vim",
+	-- image previewer in nvim
+	--"nvim-telescope/telescope-media-files.nvim",
 
 	--racket
 	--"wlangstroth/vim-racket",
 	--"Olical/conjure",
+	--
 })
