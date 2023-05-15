@@ -56,8 +56,10 @@ keymap.set("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", opts)
 keymap.set("n", "<Tab>", "<Cmd>BufferNext<CR>", opts)
 -- P-- Pin/unpin buffer
 keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+keymap.set("n", "<leader>bp", "<Cmd>BufferPin<CR>", opts)
 -- C-- Close buffer
 keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+keymap.set("n", "<leader>bc", "<Cmd>BufferPin<CR>", opts)
 
 -- Lazygit
 keymap.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", opts)
@@ -68,3 +70,6 @@ keymap.set("n", "<leader>EE", "<Cmd>ConjureEvalBuf<CR>", opts)
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>lr", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- chatgpt keys
+keymap.set("n", "<leader>gp", ":ChatGPT<CR>") -- mapping to restart lsp if necessary

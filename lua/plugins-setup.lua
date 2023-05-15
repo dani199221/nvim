@@ -150,7 +150,7 @@ return lazy.setup({
 			"nvim-telescope/telescope.nvim",
 		},
 	},
-	"ianding1/leetcode.vim",
+	--"ianding1/leetcode.vim",
 	-- image previewer in nvim
 	--"nvim-telescope/telescope-media-files.nvim",
 
