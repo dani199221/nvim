@@ -54,8 +54,6 @@ return lazy.setup({
 		end,
 	},
 
-	-- fuzzy finder
-
 	-- autocompletion
 	"hrsh7th/nvim-cmp", -- completion plugin
 	"hrsh7th/cmp-buffer", -- source for text in buffer
@@ -73,9 +71,8 @@ return lazy.setup({
 	-- configuring lsp servers
 	"neovim/nvim-lspconfig", -- easily configure language servers
 	"hrsh7th/cmp-nvim-lsp", -- for autocompletion
-	{
-		{ "glepnir/lspsaga.nvim", branch = "main" },
-	}, -- enhanced lsp uis
+	{ "glepnir/lspsaga.nvim", branch = "main" },
+	-- enhanced lsp uis
 	"onsails/lspkind.nvim", -- vs-code like icons for autocompletion
 
 	-- formatting & linting
@@ -117,24 +114,22 @@ return lazy.setup({
 	--"rhysd/vim-clang-format",
 
 	--fancy notification
-	"rcarriga/nvim-notify",
-
-	--status column
-	"luukvbaal/statuscol.nvim",
-
 	{
-		"rebelot/heirline.nvim",
-
-		config = function()
-			require("heirline").setup({})
-		end,
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
 	},
 
 	-- additional settings for clangd
-	"p00f/clangd_extensions.nvim",
+	{
+		"p00f/clangd_extensions.nvim",
+		event = "VeryLazy",
+	},
 
 	-- barbar
-	"kdheepak/lazygit.nvim",
+	{
+		"kdheepak/lazygit.nvim",
+		event = "VeryLazy",
+	},
 	"romgrk/barbar.nvim",
 
 	-- Add chatgpt to nvim
