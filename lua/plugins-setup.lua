@@ -20,12 +20,10 @@ end
 
 return lazy.setup({
 
-	-- keep track of keymaps
-	"lazytanuki/nvim-mapper",
-
 	"nvim-lua/plenary.nvim", -- lua functions that many plugins use
 
 	"bluz71/vim-nightfly-guicolors", -- preferred colorscheme
+	"EdenEast/nightfox.nvim",
 	"ryanoasis/vim-devicons",
 	"bryanmylee/vim-colorscheme-icons",
 	"Mofiqul/vscode.nvim",
@@ -50,12 +48,11 @@ return lazy.setup({
 			telescope.setup()
 			--telescope.load_extension("fzy_native")
 			--telescope.load_extension("fzf")
-			telescope.load_extension("vstask")
+			telescope.load_extension("toggletasks")
 			telescope.load_extension("notify")
+			--telescope.load_extension("media_files")
 		end,
 	},
-
-	-- fuzzy finder
 
 	-- autocompletion
 	"hrsh7th/nvim-cmp", -- completion plugin
@@ -74,9 +71,8 @@ return lazy.setup({
 	-- configuring lsp servers
 	"neovim/nvim-lspconfig", -- easily configure language servers
 	"hrsh7th/cmp-nvim-lsp", -- for autocompletion
-	{
-		{ "glepnir/lspsaga.nvim", branch = "main" },
-	}, -- enhanced lsp uis
+	{ "glepnir/lspsaga.nvim", branch = "main" },
+	-- enhanced lsp uis
 	"onsails/lspkind.nvim", -- vs-code like icons for autocompletion
 
 	-- formatting & linting
@@ -105,21 +101,56 @@ return lazy.setup({
 
 	--run tasks from nvim
 	"nvim-lua/popup.nvim",
-	"EthanJWright/vs-tasks.nvim",
+	"jedrzejboczar/toggletasks.nvim",
+	{
+
+		"stevearc/overseer.nvim",
+		config = function()
+			require("overseer").setup()
+		end,
+	},
 
 	--clangFormatter for c/cpp code
-	"rhysd/vim-clang-format",
+	--"rhysd/vim-clang-format",
 
 	--fancy notification
-	"rcarriga/nvim-notify",
+	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+	},
 
-	--status column
-	"luukvbaal/statuscol.nvim",
+	-- additional settings for clangd
+	{
+		"p00f/clangd_extensions.nvim",
+		event = "VeryLazy",
+	},
+
 	-- barbar
-	"kdheepak/lazygit.nvim",
+	{
+		"kdheepak/lazygit.nvim",
+		event = "VeryLazy",
+	},
 	"romgrk/barbar.nvim",
 
+	-- Add chatgpt to nvim
+	{
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("chatgpt").setup()
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	},
+	--"ianding1/leetcode.vim",
+	-- image previewer in nvim
+	--"nvim-telescope/telescope-media-files.nvim",
+
 	--racket
-	"wlangstroth/vim-racket",
-	"Olical/conjure",
+	--"wlangstroth/vim-racket",
+	--"Olical/conjure",
+	--
 })

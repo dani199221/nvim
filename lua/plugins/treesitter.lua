@@ -4,7 +4,6 @@ if not status then
 	return
 end
 
-
 treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
@@ -22,7 +21,10 @@ treesitter.setup({
 		"lua",
 		"vim",
 		"dockerfile",
+		"markdown",
+		"json",
 		"gitignore",
+		"python",
 	},
 	-- auto install above language parsers
 	auto_install = true,

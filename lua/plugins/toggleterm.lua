@@ -21,7 +21,8 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 toggleterm.setup({
 
   open_mapping = [[<c-\>]],
-  direction = 'float',
+  direction = 'horizontal',
+  --autochdir = true,
   hide_numbers = true, -- hide the number column in toggleterm buffers
     float_opts = {
     -- The border key is *almost* the same as 'nvim_open_win'

@@ -4,7 +4,6 @@ if not autopairs_setup then
 	return
 end
 
-
 -- configure autopairs
 autopairs.setup({
 	check_ts = true, -- enable treesitter
@@ -14,8 +13,8 @@ autopairs.setup({
 })
 
 -- import nvim-autopairs completion functionality safely
-local cmp_autopairs_setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-if not cmp_autopairs_setup then
+local setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if not setup then
 	return
 end
 
